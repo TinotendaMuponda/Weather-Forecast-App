@@ -1,6 +1,6 @@
 package com.tinoprojects.weatherforecastapp.service;
 
-import com.tinoprojects.weatherforecastapp.UserRepository;
+import com.tinoprojects.weatherforecastapp.repository.UserRepository;
 import com.tinoprojects.weatherforecastapp.domain.User;
 import com.tinoprojects.weatherforecastapp.exception.ResourceNotFoundException;
 import org.junit.Test;
@@ -10,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.lang.reflect.Executable;
 import java.util.List;
 import java.util.Optional;
 
