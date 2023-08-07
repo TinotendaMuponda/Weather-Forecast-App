@@ -57,6 +57,14 @@
 			<optional>true</optional>
 		</dependency>
 
+
+		<!--		junit-->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
