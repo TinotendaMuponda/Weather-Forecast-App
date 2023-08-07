@@ -1,0 +1,29 @@
+package com.tinoprojects.weatherforecastapp.service;
+
+import com.tinoprojects.weatherforecastapp.domain.User;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class UserServiceImpl implements UsersService {
+    @Override
+    public User createUser(User user) {
+        return null;
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return null;
+    }
+
+    @Override
+    public User getUserByUsername() {
+        return null;
+    }
+
+    @Override
+    public User getUser() {
+        return null;
+    }
+}
