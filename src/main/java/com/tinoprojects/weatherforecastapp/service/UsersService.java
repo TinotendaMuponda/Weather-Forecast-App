@@ -8,7 +8,7 @@ public interface UsersService {
 
     public User createUser(User user);
     public List<User> getUsers();
-    public  User getUserByUsername();
-    public User getUser();
+    public  User getUserByUsername(String username);
+    public User getUserById(Long id);
 
 }

@@ -23,12 +23,12 @@ public class UserServiceImpl implements UsersService {
     }
 
     @Override
-    public User getUserByUsername() {
+    public User getUserByUsername(String username) {
         return null;
     }
 
     @Override
-    public User getUser() {
+    public User getUserById(Long id) {
         return null;
     }
 }
