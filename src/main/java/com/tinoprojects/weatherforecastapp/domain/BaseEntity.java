@@ -1,4 +1,4 @@
-package com.tinoprojects.weatherforecastapp.service;
+package com.tinoprojects.weatherforecastapp.domain;
 
 import lombok.Data;
 
