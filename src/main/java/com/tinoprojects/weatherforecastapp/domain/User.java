@@ -9,11 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class User extends BaseEntity {
 
     private String username;
     private String firstName;
