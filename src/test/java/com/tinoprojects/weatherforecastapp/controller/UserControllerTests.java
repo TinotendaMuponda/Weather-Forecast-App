@@ -117,7 +117,7 @@ public class UserControllerTests {
         Mockito.when(usersService.getUserByUsername(username)).thenReturn(user);
 
 //        act
-        ResponseEntity<User> actualResponse = userController.getUserByUsername(id);
+        ResponseEntity<User> actualResponse = userController.getUserByUsername(username);
 
 //        assert
         assertEquals(HttpStatus.OK, actualResponse.getStatusCode());
