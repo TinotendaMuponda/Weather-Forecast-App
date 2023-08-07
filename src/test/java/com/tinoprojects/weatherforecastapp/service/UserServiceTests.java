@@ -2,6 +2,7 @@ package com.tinoprojects.weatherforecastapp.service;
 
 import com.tinoprojects.weatherforecastapp.UserRepository;
 import com.tinoprojects.weatherforecastapp.domain.User;
+import com.tinoprojects.weatherforecastapp.exception.ResourceNotFoundException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -9,11 +10,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.lang.reflect.Executable;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(value = MockitoJUnitRunner.class)
 public class UserServiceTests {
@@ -64,36 +65,22 @@ public class UserServiceTests {
         assertEquals(user, actualUser);
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test(expected = ResourceNotFoundException.class)
     public void testGetUserByUsername_ThrowsNotFoundExceptionIfUserNotFound(){
         String username = "tmuponda";
 
-        User user  = new User();
-        user.setId(1L);
-        user.setUsername("tmuponda");
-        user.setFirstName("Tinotenda");
-        user.setLastName("Muponda");
-        user.setCity("Harare");
-        user.setCountry("Zimbabwe");
-//        Mock Behaviour
-
         Mockito.when(userRepository.findByUsername(username)).thenReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, ()-> userService.getUserByUsername(username));
+
 
     }
-    @Test(expected = RuntimeException.class)
+    @Test(expected = ResourceNotFoundException.class)
     public void testGetUserById_ThrowsNotFoundExceptionIfUserNotFound(){
-        Long id = 1L;
-
-        User user  = new User();
-        user.setId(1L);
-        user.setUsername("tmuponda");
-        user.setFirstName("Tinotenda");
-        user.setLastName("Muponda");
-        user.setCity("Harare");
-        user.setCountry("Zimbabwe");
-//        Mock Behaviour
+        Long id = 2L;
 
         Mockito.when(userRepository.findById(id)).thenReturn(Optional.empty());
+
+        assertThrows(ResourceNotFoundException.class, ()-> userService.getUserById(id));
 
     }
 
@@ -115,8 +102,8 @@ public class UserServiceTests {
         List<User> actualUsers = userService.getUsers();
 
         assertNotNull(actualUsers);
-        assertEquals(user, actualUsers);
-        assertEquals(1, actualUsers);
+        assertEquals(List.of(user), actualUsers);
+        assertEquals(1, actualUsers.size());
     }
 
 
