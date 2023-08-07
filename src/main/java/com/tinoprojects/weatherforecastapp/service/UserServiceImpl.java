@@ -1,6 +1,6 @@
 package com.tinoprojects.weatherforecastapp.service;
 
-import com.tinoprojects.weatherforecastapp.UserRepository;
+import com.tinoprojects.weatherforecastapp.repository.UserRepository;
 import com.tinoprojects.weatherforecastapp.domain.User;
 import com.tinoprojects.weatherforecastapp.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
