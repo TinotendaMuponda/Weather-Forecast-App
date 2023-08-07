@@ -1,4 +1,4 @@
-package com.tinoprojects.weatherforecastapp;
+package com.tinoprojects.weatherforecastapp.repository;
 
 import com.tinoprojects.weatherforecastapp.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
