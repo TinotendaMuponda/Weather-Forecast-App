@@ -1,6 +1,5 @@
 package com.tinoprojects.weatherforecastapp.controller;
 
-import com.tinoprojects.weatherforecastapp.domain.WeatherData;
 import com.tinoprojects.weatherforecastapp.service.WeatherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +16,10 @@ public class WeatherController {
     private final WeatherService weatherService;
 
     @GetMapping(params = {"city"})
-    public ResponseEntity<WeatherData> getWeatherInfo(@RequestParam String city){
+    public ResponseEntity<Object> getWeatherInfo(@RequestParam String city){
         return ResponseEntity.ok(weatherService.getWeatherInfo(city));
     }
+
+
 
 }

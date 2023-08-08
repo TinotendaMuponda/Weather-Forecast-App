@@ -1,6 +1,5 @@
 package com.tinoprojects.weatherforecastapp.service;
 
-import com.tinoprojects.weatherforecastapp.domain.WeatherData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -20,10 +19,10 @@ public class WeatherServiceImpl implements WeatherService {
     private String baseUrl;
 
     @Override
-    public WeatherData getWeatherInfo(String cityName) {
+    public Object getWeatherInfo(String cityName) {
         String url = String.format("%s?q=%s&APPID=%s&units=%s", baseUrl, cityName, appId, units);
         RestTemplate restTemplate = new RestTemplate();
-        log.info("Weather Data: {}", restTemplate.getForObject(url, String.class));
-        return restTemplate.getForObject(url, WeatherData.class);
+        log.info("Weather Data: {}", restTemplate.getForObject(url, Object.class));
+        return restTemplate.getForObject(url, Object.class);
     }
 }
