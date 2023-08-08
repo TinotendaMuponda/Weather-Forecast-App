@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import static com.tinoprojects.weatherforecastapp.utility.SecurityUtils.getCurrentUserLogin;
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UsersService, UserDetailsService {
@@ -40,6 +42,15 @@ public class UserServiceImpl implements UsersService, UserDetailsService {
     public User getUserById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(()->new ResourceNotFoundException("Username with ID not Found"));
+    }
+
+    @Override
+    public User changePreferedLocation(String country, String city) {
+        User user = userRepository.findByUsername(String.valueOf(getCurrentUserLogin()))
+                .orElseThrow(()->new ResourceNotFoundException("No User Associated with username: " + getCurrentUserLogin()));
+        user.setCountry(country);
+        user.setCity(city);
+        return userRepository.save(user);
     }
 
     @Override

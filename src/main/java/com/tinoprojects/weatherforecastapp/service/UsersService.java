@@ -10,5 +10,6 @@ public interface UsersService {
     public List<User> getUsers();
     public  User getUserByUsername(String username);
     public User getUserById(Long id);
+    public User changePreferedLocation(String country, String city);
 
 }
