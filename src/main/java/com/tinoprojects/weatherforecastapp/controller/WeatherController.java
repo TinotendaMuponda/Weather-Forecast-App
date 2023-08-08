@@ -20,6 +20,11 @@ public class WeatherController {
         return ResponseEntity.ok(weatherService.getWeatherInfo(city));
     }
 
+    @GetMapping("/logged-user")
+    public ResponseEntity<Object> getWeatherInfoForLoggedPerson(){
+        return ResponseEntity.ok(weatherService.getLoggedInUserWeatherInfo());
+    }
+
 
 
 }
