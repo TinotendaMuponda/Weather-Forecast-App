@@ -1,0 +1,26 @@
+INSERT INTO users(id,
+                  username,
+                  first_name,
+                  last_name,
+                  country,
+                  city,
+                  created_by,
+                  created_date,
+                  last_modified_by,
+                  last_modified_date,
+                  role,
+                  password)
+VALUES (
+           2,
+           'user',
+           '',
+           '',
+           '',
+           '',
+           'sys',
+           sysdate(),
+           '',
+           sysdate(),
+           'USER',
+           '$2a$12$5suNzCGBGHJoZsdB5/2BdOEyXRpJSBbSiNZSC9OK9dCHfHOhkBxFy'
+       )
