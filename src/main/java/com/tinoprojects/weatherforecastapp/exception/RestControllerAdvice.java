@@ -10,7 +10,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import static org.springframework.http.HttpStatus.*;
 
-//@org.springframework.web.bind.annotation.RestControllerAdvice
+@org.springframework.web.bind.annotation.RestControllerAdvice
 public class RestControllerAdvice implements ErrorController {
 
     private static final String INTERNAL_ERROR_MSG = "Internal Server Error";
