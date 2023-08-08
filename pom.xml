@@ -43,6 +43,12 @@
 			<version>4.3.0</version>
 		</dependency>
 
+<!--		SPRING Security-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 		<!--		flyway migration-->
 		<dependency>
 			<groupId>org.flywaydb</groupId>

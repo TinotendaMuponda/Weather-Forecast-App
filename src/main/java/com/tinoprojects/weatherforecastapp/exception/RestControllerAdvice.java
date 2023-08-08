@@ -4,17 +4,18 @@ import com.tinoprojects.weatherforecastapp.domain.HttpResponse;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.client.HttpClientErrorException;
 
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.*;
 
-@org.springframework.web.bind.annotation.RestControllerAdvice
+//@org.springframework.web.bind.annotation.RestControllerAdvice
 public class RestControllerAdvice implements ErrorController {
 
     private static final String INTERNAL_ERROR_MSG = "Internal Server Error";
     private static final String RESOURCE_NOT_FOUND = "Resource Not Found: ";
+    private static final String AUTHENTICATION_FAILED = "Invalid credentials, Login Failed";
 
     @ExceptionHandler(HttpClientErrorException.class)
     public ResponseEntity<HttpResponse> clientErrorException(HttpClientErrorException ex) {
@@ -30,6 +31,10 @@ public class RestControllerAdvice implements ErrorController {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<HttpResponse> resourceNotFoundException() {
         return createHttpResponse(NOT_FOUND, RESOURCE_NOT_FOUND);
+    }
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<HttpResponse> badCredentialsException(BadCredentialsException e) {
+        return createHttpResponse(FORBIDDEN, AUTHENTICATION_FAILED);
     }
 
     @ExceptionHandler(Exception.class)

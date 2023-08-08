@@ -34,5 +34,8 @@ public class WeatherServiceImpl implements WeatherService {
         return null;
     }
 
+    @Override
+    public Object getLoggedInUserWeatherInfo() {
+        return null;
     }
 }
