@@ -36,5 +36,10 @@ public class UserController {
         return  ResponseEntity.ok(usersService.getUserByUsername(username));
     }
 
+    @PutMapping(value = "/location",params = {"country", "city"})
+    public ResponseEntity<User> changePreferredLocation(@RequestParam String country, @RequestParam String city){
+        return  ResponseEntity.ok(usersService.changePreferedLocation(country, city));
+    }
+
 
 }
